@@ -1,8 +1,6 @@
 package esprit.candidat.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -11,12 +9,13 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class candidat {
+public class Condidat {
     @Id
-    @GeneratedValue
-private int id;
-private String firstName;
-private String lastName;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String firstName;
+    private String lastName;
+    private String email;
 
     public String getFirstName() {
         return firstName;
@@ -42,12 +41,9 @@ private String lastName;
         this.email = email;
     }
 
-    public candidat(String firstName, String lastName, String email) {
+    public Condidat(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
-
-    private String email;
-
 }
